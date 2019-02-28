@@ -8,19 +8,15 @@
         <?php
             include "factorial.php";
 
+            function fprint($something) {
+                echo $something."<br>";
+            }
+
             $name = $_POST['firstname'];
             $surname = $_POST['lastname'];
             echo "Имя: ".$name." ".$surname."<br>";
 
-            echo "Тест echo: 2 + 2 = ".(2 + 2)."<br>";
-            
-            $a = 9;
-            echo "Переменная: ".$a."<br>";
-
-            if (isset($b))
-                echo $b."<br>";
-            else
-                echo "b не определена <br>";
+            fprint('');
 
             $arr = array('one', 'two', 'three');
             echo "Массив: ".$arr[0]."<br>";
@@ -28,20 +24,16 @@
             // __LINE__ и пр. - предопределенные константы
             echo "Константа: Строка ".__LINE__." в файле ".__FILE__."<br>";
 
-            $b = 1;
-            settype($b, "string");
-            echo "settype: ".$b." - это строка<br>";
+            echo "Подключение файла: factorial(5) = ".getFactorial(5)."<br>";
 
-            switch($a)
-            {
-                case 9:
-                    echo "SwitchCase: Это девять<br>";
-                    break;
-                case 10:
-                    echo "SwitchCase: Это десять<br>";
+            fprint('');
+            fprint("Count: ".count($arr));
+            print_r($arr);
+            fprint('');
+
+            foreach($arr as $a) {
+                fprint($a);
             }
-
-            echo "Подключение файла: facorial(5) = ".getFactorial(5);
         ?>
     </body>
 </html>
